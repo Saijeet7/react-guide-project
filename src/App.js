@@ -6,9 +6,6 @@ function App() {
   const [userList, setUserList] = useState([]);
 
   const addUserHandler = (uName, uAge) => {
-    console.log("Workung");
-    console.log(uName + " " + uAge);
-    console.log(userList);
     setUserList((prevUsersList) => {
       return [...prevUsersList, { name: uName, age: uAge, id: Math.random().toString }];
     });
