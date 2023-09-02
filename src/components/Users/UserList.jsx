@@ -3,8 +3,6 @@ import Card from "../UI/Card";
 import classes from "./UserList.module.css";
 
 const UserList = (props) => {
-  console.log("Passing " + props.users);
-  console.log(props.users);
   return (
     <Card className={classes.users}>
       <ul>
