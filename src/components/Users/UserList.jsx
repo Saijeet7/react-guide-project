@@ -3,14 +3,17 @@ import Card from "../UI/Card";
 import classes from "./UserList.module.css";
 
 const UserList = (props) => {
+  console.log("Passing " + props.users);
+  console.log(props.users);
   return (
     <Card className={classes.users}>
       <ul>
-        {props.users.map((user) => {
-          <li>
+        {props.users.map((user) => (
+          <li key={user.id}>
+            Hello 
             {user.name} ({user.age} years old)
-          </li>;
-        })}
+          </li>
+        ))}
       </ul>
     </Card>
   );
