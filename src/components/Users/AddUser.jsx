@@ -45,36 +45,34 @@ const AddUser = (props) => {
     setError(null);
   };
 
-  return (
-    <div>
-      {error && (
-        <ErrorModal
-          title={error.title}
-          message={error.message}
-          onConfirm={errorHandle}
+  return [
+    error && (
+      <ErrorModal key="error-modal"
+        title={error.title}
+        message={error.message}
+        onConfirm={errorHandle}
+      />
+    ),
+    <Card className={classes.input} key="card">
+      <form onSubmit={addUserHandler}>
+        <label htmlFor="username">User Name</label>
+        <input
+          id="username"
+          type="text"
+          onChange={usernameChangedHandler}
+          value={enteredUsername}
         />
-      )}
-      <Card className={classes.input}>
-        <form onSubmit={addUserHandler}>
-          <label htmlFor="username">User Name</label>
-          <input
-            id="username"
-            type="text"
-            onChange={usernameChangedHandler}
-            value={enteredUsername}
-          />
-          <label htmlFor="age">Age (Years)</label>
-          <input
-            id="age"
-            type="number"
-            onChange={userageChangedHandler}
-            value={enteredUserage}
-          />
-          <Button type="submit">Add User</Button>
-        </form>
-      </Card>
-    </div>
-  );
+        <label htmlFor="age">Age (Years)</label>
+        <input
+          id="age"
+          type="number"
+          onChange={userageChangedHandler}
+          value={enteredUserage}
+        />
+        <Button type="submit">Add User</Button>
+      </form>
+    </Card>,
+  ];
 };
 
 export default AddUser;
